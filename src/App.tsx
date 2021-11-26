@@ -1,24 +1,181 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App flex flex-col">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p className="text-5xl text-gray-900">Title</p>
       </header>
+      <main className="flex">
+        {/* grey card with rounded corners */}
+        <div className="bg-gray-200 md:rounded-lg sm:m-auto mt-10 p-4 ">
+          {/* Box */}
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+        </div>
+        <div className=" md:rounded-lg sm:m-auto mt-10 p-4 ">
+          {/* Box */}
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+          <div className="flex flex-row">
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+            <div className="w-10">1</div>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
