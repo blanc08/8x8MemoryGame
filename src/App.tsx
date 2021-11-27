@@ -29,6 +29,8 @@ function App() {
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
 
+    setChoiceOne(undefined);
+    setChoiceTwo(undefined);
     setCards(suffledCards);
     setTurns(0);
   };
@@ -73,6 +75,11 @@ function App() {
     }
   }, [choiceOne, choiceTwo]);
 
+  // start new game when the page loaded
+  useEffect(() => {
+    suffleCards();
+  }, []);
+
   // render
   return (
     <div className="App md:flex items-center h-screen">
@@ -94,9 +101,8 @@ function App() {
       <header className="w-1/4">
         <h4 className="text-5xl text-gray-900">Memory Games</h4>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui libero
-          sunt ipsa, exercitationem obcaecati nam aspernatur laborum cum
-          expedita. Praesentium!
+          Turns:
+          {turns}
         </p>
         <button
           onClick={suffleCards}
