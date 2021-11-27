@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
+import SingleCard from './Components/SingleCard';
 
 const cardImages = [
   { src: '/insects/black_ant.svg', alt: 'Black ant' },
   { src: '/insects/black_beetle.svg', alt: 'Black beetle' },
   { src: '/insects/black_grasshopper.svg', alt: 'Black Grasshopper' },
   { src: '/insects/black_ladybug.svg', alt: 'Black Ladybug' },
+  { src: '/insects/black_mosquito.svg', alt: 'Black mosquito' },
 ];
 
 interface cardsInterface {
@@ -17,11 +19,8 @@ interface cardsInterface {
 function App() {
   const [cards, setCards] = React.useState<cardsInterface | any>([]);
   const [turns, setTurns] = React.useState(0);
-  const list = [];
-
-  for (let i = 1; i < 65; i += 1) {
-    list.push(<img width="70px" src="/insects/black_ant.svg" alt="insect" />);
-  }
+  const [choiceOne, setChoiceOne] = React.useState<cardsInterface>();
+  const [choiceTwo, setChoiceTwo] = React.useState<cardsInterface>();
 
   // suffle card
   const suffleCards = () => {
@@ -32,14 +31,23 @@ function App() {
     setCards(suffledCards);
     setTurns(0);
   };
-  console.log(cards, turns);
+
+  // choiceHandler
+  const handleChoice = (card: cardsInterface) => {
+    // eslint-disable-next-line no-unused-expressions
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+  };
 
   return (
     <div className="App md:flex items-center h-screen">
       {/* Board */}
       <main id="gameBoard" className="w-3/4 flex">
         {/* Grid */}
-        <div className="grid grid-cols-8 gap-4 mx-auto">{list}</div>
+        <div className="grid grid-cols-8 gap-4 mx-auto">
+          {cards.map((card: any) => (
+            <SingleCard key={card.id} data={card} handleChoice={handleChoice} />
+          ))}
+        </div>
       </main>
       <header className="w-1/4">
         <h4 className="text-5xl text-gray-900">Memory Games</h4>
