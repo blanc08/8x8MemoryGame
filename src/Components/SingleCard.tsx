@@ -13,6 +13,8 @@ export default function singleCard({ data, handleChoice }: propsInterface) {
 
   // clickHandler function
   const clickHandler = () => {
+    // console.log(data);
+
     handleChoice(data);
   };
 

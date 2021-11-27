@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import SingleCard from './Components/SingleCard';
 
 const cardImages = [
-  { src: '/insects/black_ant.svg', alt: 'Black ant' },
-  { src: '/insects/black_beetle.svg', alt: 'Black beetle' },
-  { src: '/insects/black_grasshopper.svg', alt: 'Black Grasshopper' },
-  { src: '/insects/black_ladybug.svg', alt: 'Black Ladybug' },
-  { src: '/insects/black_mosquito.svg', alt: 'Black mosquito' },
+  {
+    src: '/insects/black_ant.svg',
+    alt: 'Black ant',
+  },
+  {
+    src: '/insects/black_beetle.svg',
+    alt: 'Black beetle',
+  },
+  {
+    src: '/insects/black_grasshopper.svg',
+    alt: 'Black Grasshopper',
+  },
+  {
+    src: '/insects/black_ladybug.svg',
+    alt: 'Black Ladybug',
+  },
+  {
+    src: '/insects/black_mosquito.svg',
+    alt: 'Black mosquito',
+  },
 ];
 
 interface cardsInterface {
@@ -36,8 +51,31 @@ function App() {
   const handleChoice = (card: cardsInterface) => {
     // eslint-disable-next-line no-unused-expressions
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+
+    console.log(card, turns);
   };
 
+  // reset choices then increase turns
+  const resetChoices = () => {
+    setChoiceOne(undefined);
+    setChoiceTwo(undefined);
+    setTurns((prevTurns) => prevTurns + 1);
+  };
+
+  // comparing cards
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+      if (choiceOne.src === choiceTwo.src) {
+        console.log('thoose cards match');
+        resetChoices();
+      } else {
+        console.log('thoose cards dont match');
+        resetChoices();
+      }
+    }
+  }, [choiceOne, choiceTwo]);
+
+  // render
   return (
     <div className="App md:flex items-center h-screen">
       {/* Board */}
