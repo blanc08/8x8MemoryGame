@@ -8,3 +8,12 @@
 }
 
 
+/* Flipping the cards */
+.card .frontOne{
+  transform: rotateY(90deg);
+  position: absolute;
+}
+
+.flipped .frontOne{
+  transform: rotateY(0deg);
+}

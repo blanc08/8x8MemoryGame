@@ -6,21 +6,25 @@ interface propsInterface {
     id: number;
   };
   handleChoice: (data: any) => void;
+  flipped: boolean;
 }
 
-export default function singleCard({ data, handleChoice }: propsInterface) {
+export default function singleCard({
+  data,
+  handleChoice,
+  flipped,
+}: propsInterface) {
+  // card's data
   const { src, alt } = data;
 
   // clickHandler function
   const clickHandler = () => {
-    // console.log(data);
-
     handleChoice(data);
   };
 
   return (
     <div className="card">
-      <div>
+      <div className={flipped ? 'flipped' : ''}>
         <img src={src} alt="frontOne" className="frontOne" />
         <button type="button" onClick={clickHandler}>
           <img

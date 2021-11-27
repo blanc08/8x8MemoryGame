@@ -64,9 +64,13 @@ function App() {
         );
         console.log(cards);
 
-        resetChoices();
+        setTimeout(() => {
+          resetChoices();
+        }, 1000);
       } else {
-        resetChoices();
+        setTimeout(() => {
+          resetChoices();
+        }, 1000);
       }
     }
   }, [choiceOne, choiceTwo]);
@@ -79,7 +83,12 @@ function App() {
         {/* Grid */}
         <div className="grid grid-cols-8 gap-4 mx-auto">
           {cards.map((card: any) => (
-            <SingleCard key={card.id} data={card} handleChoice={handleChoice} />
+            <SingleCard
+              key={card.id}
+              data={card}
+              handleChoice={handleChoice}
+              flipped={card === choiceOne || card === choiceTwo || card.matched}
+            />
           ))}
         </div>
       </main>
