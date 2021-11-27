@@ -7,19 +7,23 @@ interface propsInterface {
   };
   handleChoice: (data: any) => void;
   flipped: boolean;
+  disabled: boolean;
 }
 
 export default function singleCard({
   data,
   handleChoice,
   flipped,
+  disabled,
 }: propsInterface) {
   // card's data
   const { src, alt } = data;
 
   // clickHandler function
   const clickHandler = () => {
-    handleChoice(data);
+    if (!disabled) {
+      handleChoice(data);
+    }
   };
 
   return (
