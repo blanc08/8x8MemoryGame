@@ -34,7 +34,7 @@
       }
     ],
     "import/extensions": 0,
-    "import/no-unresolved": 1,
+    "import/no-unresolved": 0,
     "comma-dangle": "warn",
     "react/react-in-jsx-scope": 0,
     "jsx-a11y/click-events-have-key-events": 0,

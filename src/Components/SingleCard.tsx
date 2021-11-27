@@ -29,11 +29,11 @@ export default function singleCard({
   return (
     <div className="card">
       <div className={flipped ? 'flipped' : ''}>
-        <img src={src} alt="frontOne" className="frontOne" />
+        <img width="50px" src={src} alt="frontOne" className="frontOne" />
         <button type="button" onClick={clickHandler}>
           <img
-            width="90%"
-            src="/cardCover.png"
+            width="50px"
+            src="/cardCover.svg"
             alt="backOne"
             className="backOne"
           />

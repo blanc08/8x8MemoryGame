@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import './App.css';
 import SingleCard from './Components/SingleCard';
 
-const cardImages = [
-  { src: '/insects/black_ant.svg', matched: false },
-  { src: '/insects/black_beetle.svg', matched: false },
-  { src: '/insects/black_grasshopper.svg', matched: false },
-  { src: '/insects/black_ladybug.svg', matched: false },
-  { src: '/insects/black_mosquito.svg', matched: false },
-];
+const cardImages: { src: string; matched: boolean }[] = [];
+
+for (let i = 1; i < 33; i += 1) {
+  cardImages.push({
+    src: `/cards/Artboards_Diversity_Avatars_by_Netguru-${i}.svg`,
+    matched: false,
+  });
+}
 
 interface cardsInterface {
   id: number;
@@ -63,7 +64,7 @@ function App() {
               return { ...card, matched: true };
             }
             return card;
-          })
+          }),
         );
 
         resetChoices();
