@@ -30,3 +30,26 @@
   transform: rotateY(90deg);
   transition-delay: 0s;
 }
+
+/* when media < 376 */
+@media screen and (max-width: 376px){
+  .backOne{
+    max-width: 40px;
+  }
+
+  .frontOne{
+    max-width: 40px;
+  }
+}
+
+/* when media < 321 */
+@media screen and (max-width: 321px){
+  .backOne{
+    max-width: 30px;
+  }
+
+  .frontOne{
+    max-width: 30px;
+  }
+}
+

@@ -19,7 +19,7 @@ interface cardsInterface {
 
 function App() {
   const [cards, setCards] = React.useState<cardsInterface | any>([]);
-  const [turns, setTurns] = React.useState(0);
+  const [turns, setTurns] = React.useState('Player One');
   const [choiceOne, setChoiceOne] = React.useState<cardsInterface>();
   const [choiceTwo, setChoiceTwo] = React.useState<cardsInterface>();
   const [disabled, setDisabled] = React.useState(false);
@@ -33,7 +33,7 @@ function App() {
     setChoiceOne(undefined);
     setChoiceTwo(undefined);
     setCards(suffledCards);
-    setTurns(0);
+    setTurns('Player One');
   };
 
   // choiceHandler
@@ -49,7 +49,14 @@ function App() {
   const resetChoices = () => {
     setChoiceOne(undefined);
     setChoiceTwo(undefined);
-    setTurns((prevTurns) => prevTurns + 1);
+
+    // Change Player
+    if (turns === 'Player One') {
+      setTurns('Player Two');
+    } else {
+      setTurns('Player One');
+    }
+
     setDisabled(false);
   };
 
@@ -83,9 +90,32 @@ function App() {
 
   // render
   return (
-    <div className="App md:flex items-center h-screen">
+    <div className="App h-screen flex md:flex-row-reverse flex-col h-screen">
+      {/* Header */}
+      <header className="sm:w-4/12 flex flex-col justify-center p-6 md:p-0">
+        <h4 className="text-3xl xl:text-5xl text-gray-900 mb-4">
+          Memory Games
+        </h4>
+        <p className="mb-4">
+          Turns:
+          {'  '}
+          <span className="text-gray-900">{turns}</span>
+        </p>
+        <div>
+          <button
+            onClick={suffleCards}
+            type="button"
+            className="py-2 px-3 my-2 rounded-sm bg-blue-200"
+          >
+            New Game
+          </button>
+        </div>
+      </header>
       {/* Board */}
-      <main id="gameBoard" className="w-3/4 flex">
+      <main
+        id="gameBoard"
+        className="sm:w-8/12 flex items-center pl-2 sm:pl-0 pr-6 md:p-6 xl:p-0"
+      >
         {/* Grid */}
         <div className="grid grid-cols-8 gap-4 mx-auto">
           {cards.map((card: any) => (
@@ -99,20 +129,6 @@ function App() {
           ))}
         </div>
       </main>
-      <header className="w-1/4">
-        <h4 className="text-5xl text-gray-900">Memory Games</h4>
-        <p>
-          Turns:
-          {turns}
-        </p>
-        <button
-          onClick={suffleCards}
-          type="button"
-          className="py-2 px-3 my-2 rounded-sm bg-blue-200"
-        >
-          New Game
-        </button>
-      </header>
     </div>
   );
 }

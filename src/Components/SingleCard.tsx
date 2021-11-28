@@ -30,13 +30,8 @@ export default function singleCard({
     <div className="card">
       <div className={flipped ? 'flipped' : ''}>
         <img width="50px" src={src} alt="frontOne" className="frontOne" />
-        <button type="button" onClick={clickHandler}>
-          <img
-            width="50px"
-            src="/cardCover.svg"
-            alt="backOne"
-            className="backOne"
-          />
+        <button style={{ width: 50 }} type="button" onClick={clickHandler}>
+          <img src="/cardCover.svg" alt="backOne" className="backOne" />
         </button>
       </div>
     </div>
