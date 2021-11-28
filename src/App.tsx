@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import SingleCard from './Components/SingleCard';
+import Status from './Components/Status';
 
 const cardImages: { src: string; matched: boolean }[] = [];
 
@@ -15,11 +16,14 @@ interface cardsInterface {
   id: number;
   src: string;
   alt: string;
+  matched: boolean;
 }
 
 function App() {
   const [cards, setCards] = React.useState<cardsInterface | any>([]);
   const [turns, setTurns] = React.useState('Player One');
+  const [winner, setWinner] = React.useState('');
+  const [score, setScore] = React.useState({ PlayerOne: 0, PlayerTwo: 0 });
   const [choiceOne, setChoiceOne] = React.useState<cardsInterface>();
   const [choiceTwo, setChoiceTwo] = React.useState<cardsInterface>();
   const [disabled, setDisabled] = React.useState(false);
@@ -34,6 +38,8 @@ function App() {
     setChoiceTwo(undefined);
     setCards(suffledCards);
     setTurns('Player One');
+    setScore({ PlayerOne: 0, PlayerTwo: 0 });
+    setWinner('');
   };
 
   // choiceHandler
@@ -60,6 +66,35 @@ function App() {
     setDisabled(false);
   };
 
+  // end checker
+  const isTheGameEnded = () => {
+    let matchedCount = 0;
+    for (let i = 0; i < cards.length; i += 1) {
+      if (cards[i].matched) {
+        matchedCount += 1;
+      }
+    }
+
+    if (matchedCount === 64) {
+      return true;
+    }
+    return false;
+  };
+
+  // find winner
+  useEffect(() => {
+    // check if there is a winner
+    if (isTheGameEnded()) {
+      if (score.PlayerOne > score.PlayerTwo) {
+        setWinner('Player One');
+      } else if (score.PlayerTwo > score.PlayerOne) {
+        setWinner('Player Two');
+      } else {
+        setWinner('Draw');
+      }
+    }
+  }, [score]);
+
   // comparing cards
   useEffect(() => {
     if (choiceOne && choiceTwo) {
@@ -68,13 +103,21 @@ function App() {
         setCards((prevCards: cardsInterface[]) =>
           prevCards.map((card: cardsInterface) => {
             if (card.src === choiceOne.src) {
+              // add score
+              if (turns === 'Player One') {
+                setScore({ ...score, PlayerOne: score.PlayerOne + 1 });
+              } else {
+                setScore({ ...score, PlayerTwo: score.PlayerTwo + 1 });
+              }
               return { ...card, matched: true };
             }
             return card;
           }),
         );
 
-        resetChoices();
+        setTimeout(() => {
+          resetChoices();
+        }, 1000);
       } else {
         setTimeout(() => {
           resetChoices();
@@ -96,11 +139,7 @@ function App() {
         <h4 className="text-3xl xl:text-5xl text-gray-900 mb-4">
           Memory Games
         </h4>
-        <p className="mb-4">
-          Turns:
-          {'  '}
-          <span className="text-gray-900">{turns}</span>
-        </p>
+        <Status winner={winner} turn={turns} />
         <div>
           <button
             onClick={suffleCards}
