@@ -12,7 +12,8 @@ In the project directory, we use react as the frontend framework && tailwind as 
 ### Game screnario
 - Game starts with the Player one.
 - each player need to matching 2 card to get points.
-- Players(Player One & Player two) get their turn Alternating.
+- If the cards don’t match (it’s not a pair), current Player turns them back over and it’s then the turn of next Player to turn over two new cards..
+- However, if the two cards match, it’s a pair! The respective player keeps the cards and has the right to play again.
 - Game will end if the whole card are opened
 - The player who has the most points is the winner
 - If Player One has the same points as Player Two, the result will be Draw

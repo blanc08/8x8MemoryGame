@@ -56,13 +56,6 @@ function App() {
     setChoiceOne(undefined);
     setChoiceTwo(undefined);
 
-    // Change Player
-    if (turns === 'Player One') {
-      setTurns('Player Two');
-    } else {
-      setTurns('Player One');
-    }
-
     setDisabled(false);
   };
 
@@ -119,6 +112,12 @@ function App() {
           resetChoices();
         }, 1000);
       } else {
+        // Change Player
+        if (turns === 'Player One') {
+          setTurns('Player Two');
+        } else {
+          setTurns('Player One');
+        }
         setTimeout(() => {
           resetChoices();
         }, 1000);
